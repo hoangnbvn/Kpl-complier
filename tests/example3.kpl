@@ -1,0 +1,38 @@
+Program CKTEST4; (* Nguyen Ngoc Tuan - 20194702 *)
+
+Var A: ARRAY[8] of Integer;
+  result: Integer;
+  N: Integer;
+
+FUNCTION GCD(a:Integer; b:Integer) : INTEGER;
+  BEGIN
+    IF b = 0 THEN GCD := a
+    ELSE IF a = 0 THEN GCD := b
+    ELSE 
+    BEGIN
+      WHILE a != b DO
+        BEGIN
+          IF a > b THEN a:= a - b
+          Else b:= b - a;
+        END;
+      GCD := a;
+    END
+  END;
+
+BEGIN
+  (* A[1],A[2],A[3],A[4],A[5],A[6],A[7],A[8]:= 2,0,1,9,4,7,0,2; *)
+  A[1] := 2;
+  A[2] := 0;
+  A[3] := 1;
+  A[4] := 9;
+  A[5] := 4;
+  A[6] := 7;
+  A[7] := 0;
+  A[8] := 2;
+  result := GCD(A[1],A[2]);
+  FOR N:= 1 to 8 DO
+    BEGIN
+        result:= GCD(result, A[N]);
+    END;
+  CALL WRITEI(result);
+END.

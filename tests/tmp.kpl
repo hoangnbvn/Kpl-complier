@@ -1,0 +1,17 @@
+PROGRAM finalterm; (* HEDSPI VN  *)
+CONST pi = 3.1416;
+        
+TYPE t = INTEGER;
+VAR i : t;
+    x : float;
+    a : array [10] of t;
+    str: array [5] of char;
+
+FUNCTION ham(x:float; var y:integer):integer;
+BEGIN 
+    x-=0.3;
+    ham := y;
+END;
+BEGIN
+    FOR i:=1 TO 2 DO a[i] := ham(3.2 , i);
+END.

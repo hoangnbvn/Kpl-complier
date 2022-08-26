@@ -1,0 +1,16 @@
+Program finalterm;(*  HEDSPI VN 2021-2022 *)
+const pi=3.1416;
+          e=1.2;
+type t=float;
+var i:integer;
+       a: array[10] of t;
+       str: array[10] of char;
+function  ham(x:float ; var y:float) : float;
+begin
+x -=y + 4.5;
+ham :=  x;
+end;
+begin 
+  str := "DHBKHN";
+  for i:= 1 to 5 do a[i] := ham(0.5, a[0]);
+end.

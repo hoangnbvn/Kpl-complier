@@ -1,0 +1,39 @@
+Program Cau4; (* Hua Viet Hoang 20194572 *)
+
+Var A: ARRAY[8] of Integer;
+    N: Integer;
+    i: Integer;
+
+(* Ham tinh ucln cua 2 so *)
+FUNCTION GCD( a:Integer; b:Integer) : INTEGER;
+  BEGIN
+    IF b = 0 THEN GCD := a
+    ELSE IF a = 0 THEN GCD := b
+    ELSE 
+    BEGIN
+      WHILE a != b DO
+        BEGIN
+          IF a > b THEN a:= a - b
+          ELSE b:= b - a;
+        END;
+      GCD := a;
+    END
+  END;
+
+BEGIN
+  (* Mang A luu 8 chu so cua mssv *)
+  A[1] := 2;
+  A[2] := 0;
+  A[3] := 1;
+  A[4] := 9;
+  A[5] := 4;
+  A[6] := 5;
+  A[7] := 7;
+  A[8] := 2;
+  N := GCD(A[1],A[2]);
+  FOR i:= 1 TO 8 DO
+    BEGIN
+        N:= GCD(N, A[i]);
+    END;
+  CALL WRITEI(N);
+END.
